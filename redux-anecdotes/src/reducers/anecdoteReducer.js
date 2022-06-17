@@ -23,14 +23,9 @@ const reducer = (state = initialState, action) => {
   // console.log('state now: ', state)
   // console.log('action', action)
   switch(action.type) {
-    case 'NEW_ANEC':
-      const newAnec = {
-        content: action.data.content,
-        id: getId(),
-        votes: 0
-      }
-      return [...state, newAnec]
-    case 'VOTE_CLICK':
+    case 'CREATE_ANEC':
+      return [...state, action.data]
+    case 'VOTE_ANEC':
       const id = action.data.id
       const anecToChange = state.find(n => n.id === id)
       const changedAnec = { 
@@ -42,6 +37,24 @@ const reducer = (state = initialState, action) => {
       )
     default:
       return state
+  }
+}
+
+export const createAnec = (content) => {
+  return {
+    type: 'CREATE_ANEC',
+    data: {
+      content,
+      id: getId(),
+      votes: 0
+    }
+  }
+}
+
+export const voteAnec = (id) => {
+  return {
+    type: 'VOTE_ANEC',
+    data: { id }
   }
 }
 
