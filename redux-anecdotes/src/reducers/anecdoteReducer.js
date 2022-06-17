@@ -23,6 +23,13 @@ const reducer = (state = initialState, action) => {
   // console.log('state now: ', state)
   // console.log('action', action)
   switch(action.type) {
+    case 'NEW_ANEC':
+      const newAnec = {
+        content: action.data.content,
+        id: getId(),
+        votes: 0
+      }
+      return [...state, newAnec]
     case 'VOTE_CLICK':
       const id = action.data.id
       const anecToChange = state.find(n => n.id === id)
