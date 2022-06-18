@@ -17,8 +17,13 @@ const Anecdote = ({ anecdote, vote }) => {
 }
 
 export default function AnecdoteList(props) {
-  const anecdotes = useSelector(state => state.sort((a, b) => b.votes - a.votes))
-
+  // const anecdotes = useSelector(({ anecs }) => anecs.sort((a, b) => b.votes - a.votes))
+  // NOTE: ERR: Cannot assign to read only property '0' of object '[object Array]'
+  const anecdotes = useSelector(({ anecs }) => {
+    const _anecs = [...anecs]
+    return _anecs.sort((a, b) => b.votes - a.votes)
+  })
+  
   const dispatch = useDispatch()
 
   const vote = (id) => {
