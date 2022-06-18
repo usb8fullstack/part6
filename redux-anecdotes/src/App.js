@@ -3,7 +3,19 @@ import AnecdoteList from './components/AnecdoteList'
 import Filter from './components/Filter'
 import Notification from './components/Notification'
 
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import anecService from './services/anecs'
+import { setAnecs } from './reducers/anecdoteReducer'
+
 const App = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    anecService
+      .getAll()
+      .then(anecs => dispatch(setAnecs(anecs)))
+  }, [dispatch])
+
   return (
     <div>
       <Filter />
