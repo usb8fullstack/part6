@@ -1,0 +1,19 @@
+{
+  "anecs": [
+    {
+      "content": "content 1",
+      "id": 123456781,
+      "votes": 0
+    },
+    {
+      "content": "content 2",
+      "id": 123456782,
+      "votes": 0
+    },
+    {
+      "content": "content 3",
+      "id": 123456783,
+      "votes": 0
+    }
+  ]
+}
