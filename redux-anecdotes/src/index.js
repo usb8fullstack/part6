@@ -5,11 +5,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 import App from './App'
 import AnecReducer from './reducers/anecdoteReducer'
+import NotificationReducer from './reducers/notificationReducer'
 
 // const store = createStore(AnecReducer)
 const store = configureStore({
   reducer: {
     anecs: AnecReducer,
+    notification: NotificationReducer,
   }
 })
 
