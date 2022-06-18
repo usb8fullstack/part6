@@ -19,9 +19,9 @@ const AnecSlice = createSlice({
         o.id !== id ? o : changedAnec 
       )
     },
-    appendAnec(state, action) {
-      state.push(action.payload)
-    },
+    // appendAnec(state, action) {
+    //   state.push(action.payload)
+    // },
     setAnecs(state, action) {
       return action.payload
     }
@@ -34,6 +34,13 @@ export const initializeAnecdotes = () => {
   return async dispatch => {
     const anecs = await anecService.getAll()
     dispatch(setAnecs(anecs))
+  }
+}
+
+export const createAnecdote = (content) => {
+  return async dispatch => {
+    const newObj = await anecService.createNew(content)
+    dispatch(createAnec(newObj))
   }
 }
 
