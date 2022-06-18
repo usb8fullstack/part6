@@ -1,13 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = 'hihihaha'
+const initialState = ''
 
 const NotificationSlice = createSlice({
   name: 'notification',
   initialState,
   reducers: {
+    setNotification(state, action) {
+      return `You voted '${action.payload}'`
+    },
+    removeNotification(state, action) {
+      return initialState
+    },
   },
 })
 
-// export const { createAnec, voteAnec } = NotificationSlice.actions
+export const { setNotification, removeNotification } = NotificationSlice.actions
 export default NotificationSlice.reducer
