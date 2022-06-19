@@ -30,7 +30,7 @@ export default function AnecdoteList(props) {
 
   const vote = async (anecdote) => {
     dispatch(voteAnecdote(anecdote))
-    dispatch(throwNotification(`you voted '${anecdote.content}'`, 10))
+    dispatch(throwNotification(`you voted '${anecdote.content}'`, 5))
   }
 
   return (
